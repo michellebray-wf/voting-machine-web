@@ -1,0 +1,24 @@
+name: voting_machine
+version: 0.0.1
+description: Dart App for displaying the voting UI to teach dockerizing distributed microservices
+dependencies:
+  truss:
+    hosted:
+      name: truss
+      url: https://pub.workiva.org
+    version: ^2.7.0
+  web_skin_dart:
+    hosted:
+      name: web_skin_dart
+      url: https://pub.workiva.org
+    version: ^0.3.1
+dev_dependencies:
+  coverage: "^0.7.2"
+  dart_dev: "^1.1.1"
+  dart_style: "^0.2.1"
+  dartdoc: "^0.8.0"
+  test: "^0.12.4"
+environment:
+  sdk: ">=1.15.0 <2.0.0"
+transformers:
+  - web_skin_dart

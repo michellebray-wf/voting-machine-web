@@ -1,24 +1,28 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# Don’t commit the following directories created by pub.
+build/
+packages/
+packages
+.packages
+.buildlog
+.idea
+.pub/
+pubspec.lock
 
-# Folders
-_obj
-_test
+# Or the files created by dart2js.
+*.dart.js
+*.dart.precompiled.js
+*.js_
+*.js.deps
+*.js.map
+*.iml
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# Or the files created by coverage.
+coverage/
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
+# Or the files created by docgen.
+dartdoc-viewer
 
-_testmain.go
+.DS_Store
 
-*.exe
-*.test
-*.prof
+#don't commit screenshots from functional tests
+screenshots/
