@@ -6,22 +6,22 @@ import '../stores.dart';
 import 'vote_app_view.dart';
 
 @Factory()
-UiFactory<TodoAppModalProps> TodoAppModal;
+UiFactory<VoteAppModalProps> VoteAppModal;
 
 @Props()
-class TodoAppModalProps extends ModalProps {
-  ToDoActions actions;
-  ToDoStore store;
+class VoteAppModalProps extends ModalProps {
+  VoteActions actions;
+  VoteStore store;
 }
 
 @Component(subtypeOf: ModalComponent)
-class TodoAppModalComponent extends UiComponent<TodoAppModalProps> {
+class VoteAppModalComponent extends UiComponent<VoteAppModalProps> {
   @override
   render() {
     return (Modal()
       ..addProps(copyUnconsumedProps())
       ..title = 'My Todos')(
-        DialogBody()((ToDoAppView()
+        DialogBody()((VoteAppView()
           ..actions = props.actions
           ..showPageHeader = false
           ..store = props.store)()),

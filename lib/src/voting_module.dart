@@ -4,10 +4,10 @@ import 'package:w_module/w_module.dart';
 
 import 'actions.dart';
 import 'stores.dart';
-import 'components/clear_todos_modal.dart';
+import 'components/clear_votes_modal.dart';
 import 'components/vote_app_view.dart';
-import 'components/todo_app_sidebar_content.dart';
-import 'components/todo_app_modal.dart';
+import 'components/vote_app_sidebar_content.dart';
+import 'components/vote_app_modal.dart';
 
 class VoteModule extends Module {
   VoteActions _actions;

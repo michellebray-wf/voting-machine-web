@@ -16,31 +16,50 @@ class NewVoteInputProps extends UiProps {
 
 @State()
 class NewVoteInputState extends UiState {
-  String value;
+  String option;
 }
 
 @Component()
-class NewVoteInputComponent extends UiStatefulComponent<NewVoteInputProps, NewVoteInputState> {
-  getInitialState() => (newState()..value = '');
+class NewVoteInputComponent
+    extends UiStatefulComponent<NewVoteInputProps, NewVoteInputState> {
+  ToggleInputComponent _input;
+
+  getInitialState() => (newState()..option = '');
 
   @override
   render() {
-    return (Dom.form()..onSubmit = _onSubmit)((TextInput()
-      ..hideLabel = true
-      ..placeholder = 'Add a new vote...'
-      ..onChange = _onChange
-      ..value = state.value)());
+    return (Form()(
+        (ToggleInputGroup()
+          ..groupLabel = 'Voting Options'
+          ..hideGroupLabel = true
+          ..ref = (input) {
+            this._input = input;
+          })(
+            (RadioInput()
+              ..isInline = true
+              ..defaultChecked = true
+              ..value = 'optionA'
+              ..label = 'Option A')(),
+            (RadioInput()
+              ..isInline = true
+              ..value = 'optionB'
+              ..label = 'Option B')()),
+        FormGroup()((Button()
+          ..skin = ButtonSkin.PRIMARY
+          ..onClick = _onClick)('Cast Vote'))));
   }
 
-  _onChange(react.SyntheticFormEvent event) {
-    setState(newState()..value = event.target.value);
-  }
-
-  _onSubmit(react.SyntheticFormEvent event) {
+  _onClick(react.SyntheticMouseEvent event) {
     event.preventDefault();
     if (props.onAddVote != null) {
-      props.onAddVote(new Vote(state.value));
-      setState(newState()..value = '');
+      print(this._input.getValue());
+      var list = ['optionA'];
+      print(list);
+      print(this._input.getValue() == "[optionA]");
+      print(this._input.getValue() == ['optionA']);
+      print(this._input.getValue() == list);
+      props.onAddVote(new Vote(state.option));
+      setState(newState()..option = '');
     }
   }
 }
