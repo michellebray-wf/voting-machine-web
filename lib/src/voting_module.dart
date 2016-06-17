@@ -36,7 +36,7 @@ class VoteModule extends Module {
     _actions.showHelpModal.listen((_) {
       _modalManager.alert(
           'This will delete all of the votes that have been cast already.',
-          title: 'Managed Modal');
+          title: 'Delete All Votes');
     });
   }
 

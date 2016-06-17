@@ -43,14 +43,14 @@ class VoteAppViewComponent extends FluxUiComponent<VoteAppViewProps> {
                 (Card()
                   ..header = (CardHeader()
                     ..leftCap = (Icon()..glyph = IconGlyph.CHECKMARK)())(
-                      'Option A'))(optionA.toString())),
+                      'Option B'))(optionB.toString())),
             (Column()
               ..md = 6
               ..mdPull = 6)(
                 (Card()
                   ..header = (CardHeader()
                     ..leftCap = (Icon()..glyph = IconGlyph.CHECKMARK)())(
-                      'Option B'))(optionB.toString()))),
+                      'Option A'))(optionA.toString()))),
         ButtonGroup()((Button()
           ..isDisabled = (props.store.votesA + props.store.votesB) == 0
           ..onClick = _showClearModal)('Clear Vote Count')));
