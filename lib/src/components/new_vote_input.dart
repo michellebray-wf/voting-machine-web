@@ -52,13 +52,8 @@ class NewVoteInputComponent
   _onClick(react.SyntheticMouseEvent event) {
     event.preventDefault();
     if (props.onAddVote != null) {
-      print(this._input.getValue());
-      var list = ['optionA'];
-      print(list);
-      print(this._input.getValue() == "[optionA]");
-      print(this._input.getValue() == ['optionA']);
-      print(this._input.getValue() == list);
-      props.onAddVote(new Vote(state.option));
+      var value = this._input.getValue();
+      props.onAddVote(new Vote(value.single));
       setState(newState()..option = '');
     }
   }
