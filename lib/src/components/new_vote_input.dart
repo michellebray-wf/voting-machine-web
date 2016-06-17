@@ -53,7 +53,7 @@ class NewVoteInputComponent
     event.preventDefault();
     if (props.onAddVote != null) {
       var value = this._input.getValue();
-      props.onAddVote(new Vote(value.single));
+      props.onAddVote(value.single);
       setState(newState()..option = '');
     }
   }

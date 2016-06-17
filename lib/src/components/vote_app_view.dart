@@ -20,15 +20,8 @@ class VoteAppViewComponent extends FluxUiComponent<VoteAppViewProps> {
 
   @override
   render() {
-    int optionA = 0;
-    int optionB = 0;
-    props.store.votes.forEach((Vote vote) {
-      if (vote.option == "A") {
-        optionA += 1;
-      } else if (vote.option == "B") {
-        optionB += 1;
-      }
-    });
+    int optionA = props.store.votesA;
+    int optionB = props.store.votesB;
 
     var pageHeader;
     if (props.showPageHeader) {
@@ -59,7 +52,7 @@ class VoteAppViewComponent extends FluxUiComponent<VoteAppViewProps> {
                     ..leftCap = (Icon()..glyph = IconGlyph.CHECKMARK)())(
                       'Option B'))(optionB.toString()))),
         ButtonGroup()((Button()
-          ..isDisabled = props.store.votes.length == 0
+          ..isDisabled = (props.store.votesA + props.store.votesB) == 0
           ..onClick = _showClearModal)('Clear Vote Count')));
   }
 
