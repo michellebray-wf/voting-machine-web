@@ -2,9 +2,7 @@ import 'package:react/react.dart' as react;
 import 'package:web_skin_dart/ui_components.dart';
 import 'package:web_skin_dart/ui_core.dart';
 
-import '../stores.dart';
-
-typedef AddVoteFunction(Vote vote);
+typedef AddVoteFunction(String vote);
 
 @Factory()
 UiFactory<NewVoteInputProps> NewVoteInput;
@@ -52,7 +50,7 @@ class NewVoteInputComponent
   _onClick(react.SyntheticMouseEvent event) {
     event.preventDefault();
     if (props.onAddVote != null) {
-      var value = this._input.getValue();
+      var value = _input.getValue();
       props.onAddVote(value.single);
       setState(newState()..option = '');
     }
