@@ -20,7 +20,7 @@ class NewVoteInputState extends UiState {
 @Component()
 class NewVoteInputComponent
     extends UiStatefulComponent<NewVoteInputProps, NewVoteInputState> {
-  ToggleInputComponent _input;
+  ToggleInputGroupComponent _input;
 
   getInitialState() => (newState()..option = '');
 
