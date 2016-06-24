@@ -1,0 +1,17 @@
+---
+base: 'ubuntu/trusty'
+apt:
+  packages:
+    - nginx
+add:
+  nginx.conf: /etc/nginx/nginx.conf
+after_install:
+  - mkdir -p /deploy
+  - tar -xvzf /build/smithy/deploy.tar.gz
+  - cp -R build/web/* /deploy
+
+expose:
+  - '80'
+
+workdir: /deploy
+cmd: ['nginx']
