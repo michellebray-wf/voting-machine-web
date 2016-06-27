@@ -1,0 +1,14 @@
+project: custom
+language: dart
+runner_image: docker.webfilings.org/devops/smithy-runner-dart1.17.1:3.3.3
+before_script:
+    - pub get
+script:
+    - pub run dart_dev format --check
+    - pub run dart_dev analyze
+    - xvfb-run -s '-screen 0 1024x768x24' pub run dart_dev test
+    - pub build --mode=release
+    - tar -cvzf deploy.tar.gz build/*
+artifacts:
+    docker:
+        - ./deploy.tar.gz
