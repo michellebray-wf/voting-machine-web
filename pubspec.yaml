@@ -2,6 +2,7 @@ name: voting_machine
 version: 0.0.1
 description: Dart App for displaying the voting UI to teach dockerizing distributed microservices
 dependencies:
+  mustache4dart: '>= 1.0.0 < 2.0.0'
   truss:
     hosted:
       name: truss
